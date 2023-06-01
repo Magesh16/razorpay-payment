@@ -8,40 +8,40 @@
     "payload": {
         "payment": {
             "entity": {
-                "id": "pay_LwVwQoCOLE0t9A",
+                "id": "pay_LwgSv03tIEydlE",
                 "entity": "payment",
-                "amount": 499000,
+                "amount": 350000,
                 "currency": "INR",
                 "status": "captured",
-                "order_id": "order_LwVuVKVp9OCHG7",
+                "order_id": "order_LwgSieJw0F4BD3",
                 "invoice_id": null,
                 "international": false,
-                "method": "wallet",
+                "method": "netbanking",
                 "amount_refunded": 0,
                 "refund_status": null,
                 "captured": true,
                 "description": null,
                 "card_id": null,
-                "bank": null,
-                "wallet": "airtelmoney",
+                "bank": "KKBK",
+                "wallet": null,
                 "vpa": null,
                 "email": "magidexter@gmail.com",
                 "contact": "+918610246119",
                 "notes": [],
-                "fee": 11776,
-                "tax": 1796,
+                "fee": 8260,
+                "tax": 1260,
                 "error_code": null,
                 "error_description": null,
                 "error_source": null,
                 "error_step": null,
                 "error_reason": null,
                 "acquirer_data": {
-                    "transaction_id": null
+                    "bank_transaction_id": "5036406"
                 },
-                "created_at": 1685589432,
-                "base_amount": 499000
+                "created_at": 1685626494,
+                "base_amount": 350000
             }
         }
     },
-    "created_at": 1685589436
+    "created_at": 1685626499
 }

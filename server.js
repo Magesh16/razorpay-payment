@@ -5,6 +5,7 @@ import shortid from 'shortid';
 import crypto from 'crypto';
 import fs from 'fs';
 import dotenv from 'dotenv';
+import { log } from 'console';
 const app =express();
 
 dotenv.config();
@@ -21,16 +22,13 @@ var instance = new razorpay({
 
 app.post('/verification', (req,res)=>{
   const secret = '16062002';
-  console.log(req.body);
-
 	const shasum = crypto.createHmac('sha256', secret)
 	shasum.update(JSON.stringify(req.body))
 	const digest = shasum.digest('hex')
 
-	// console.log(digest, req.headers['x-razorpay-signature'])
 
 	if (digest === req.headers['x-razorpay-signature']) {
-		console.log('request is legit')
+		console.log("request is ok");
 		fs.writeFileSync('payment.json', JSON.stringify(req.body, null, 4))
 	} else {
 	}
@@ -39,7 +37,7 @@ app.post('/verification', (req,res)=>{
 
 app.post('/payment', async(req,res)=>{
   const payment_capture = 1
-	const amount = 500
+	const amount = 4500
 	const currency = 'INR'
 
 	const options = {
@@ -51,7 +49,7 @@ app.post('/payment', async(req,res)=>{
 
 	try {
 		const response = await instance.orders.create(options)
-		console.log(response)
+		// console.log(response)
 		res.json({
 			id: response.id,
 			currency: response.currency,
