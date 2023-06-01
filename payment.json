@@ -1,0 +1,47 @@
+{
+    "entity": "event",
+    "account_id": "acc_LwAenTQIsohbUp",
+    "event": "payment.captured",
+    "contains": [
+        "payment"
+    ],
+    "payload": {
+        "payment": {
+            "entity": {
+                "id": "pay_LwVwQoCOLE0t9A",
+                "entity": "payment",
+                "amount": 499000,
+                "currency": "INR",
+                "status": "captured",
+                "order_id": "order_LwVuVKVp9OCHG7",
+                "invoice_id": null,
+                "international": false,
+                "method": "wallet",
+                "amount_refunded": 0,
+                "refund_status": null,
+                "captured": true,
+                "description": null,
+                "card_id": null,
+                "bank": null,
+                "wallet": "airtelmoney",
+                "vpa": null,
+                "email": "magidexter@gmail.com",
+                "contact": "+918610246119",
+                "notes": [],
+                "fee": 11776,
+                "tax": 1796,
+                "error_code": null,
+                "error_description": null,
+                "error_source": null,
+                "error_step": null,
+                "error_reason": null,
+                "acquirer_data": {
+                    "transaction_id": null
+                },
+                "created_at": 1685589432,
+                "base_amount": 499000
+            }
+        }
+    },
+    "created_at": 1685589436
+}

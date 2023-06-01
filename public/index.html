@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RazorPay Payment</title>
+</head>
+<body>
+    <div style="display:inline-block">
+        <img src="https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/3/q/k/-original-imagkp8f9vrfqtfg.jpeg" alt="" width="100px" height="100px">
+        <p>Realme</p>
+        <p><b>Amount:- Rs. 50000</b></p>
+        <form class="pay-form">
+            <input type="hidden" name="name" value="Mobile">
+            <input type="hidden" name="amount" value="50000">
+            <input type="hidden" name="description" value="Realme mobile Buying">
+            <input type="submit" id="rzp-button" value="Pay Now">
+        </form>
+    </div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    document.getElementById('rzp-button').onclick = async function(e){
+        e.preventDefault();
+		const data = await fetch('http://localhost:1315/payment', { method: 'POST' }).then((t) =>
+			t.json()
+		)
+		console.log(data)
+    var options = {
+        key: 'rzp_test_dYx0fSFmIy1YRt',
+        currency: data.currency,
+			amount: data.amount.toString(),
+			order_id: data.id,
+        handler: function (response){
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature)
+        },
+        prefill: {
+                    name: 'Magi',
+                    email: 'magidexter@gmail.com',
+                    phone_number: '8766787878'
+                }
+}
+var rzp1 = new window.Razorpay(options);
+rzp1.open()
+}
+
+</script>
+</body>
+</html>
